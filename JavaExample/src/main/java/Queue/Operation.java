@@ -9,23 +9,17 @@ public class Operation {
             int number1 = (Integer) integers.dequeue();
             int number2 = (Integer) integers.dequeue();
             String opr = (String) operators.dequeue();
-
-            System.out.print("\n\nAfter Operation " + number1 + opr + number2 + " : ");
             int result = 0;
             if (opr == "+")      result = number1 + number2;
             else if (opr == "-") result = number1 - number2;
             else                 result  = number1 * number2;
 
             integers.enqueue(result);
-
-            System.out.print("\n\tCQ1 : ");  // print circular queue1
             for (int i = 0; i < integers.size(); i++)
             {
                 System.out.print(" " + integers.peek());
                 integers.enqueue(integers.dequeue());
             }
-
-            System.out.print("\n\tCQ2 : ");  // print circular queue2
             for (int i = 0; i < operators.size(); i++)
             {
                 System.out.print(" " + operators.peek());
